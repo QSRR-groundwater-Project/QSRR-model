@@ -1,2 +1,11 @@
-# QSRR-model
-This repository contains a QSRR-based machine learning framework for predicting chromatographic retention indices of groundwater micropollutants using molecular descriptors. It includes scripts for descriptor calculation, model training, applicability domain assessment, and preliminary prediction results used for contaminant prioritization.
+# QSRR-Based Groundwater Contaminant Screening Pipeline
+This repository implements a reproducible QSRR (Quantitative Structure–Retention Relationship) pipeline for predicting retention indices (RI) and prioritizing groundwater contaminants.
+
+The workflow integrates:
+
+SMILES standardization and RDKit descriptor generation
+Artificial Neural Network (ANN) modeling (leakage-free)
+External validation with applicability domain (AD) analysis
+Screening and prioritization using a mobility–occurrence framework
+
+This pipeline is designed to support data-driven environmental prioritization of micropollutants, particularly in groundwater systems.

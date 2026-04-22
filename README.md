@@ -26,6 +26,11 @@ Step A — RDKit Descriptor Dataset Construction
 Script:
 A_build_rdkit_datasets_1492_390_top100_with_smiles_cleanup_KEEPFREQ.py
 
+
+Input: - ibio_a_12354757_sm0003.xls (1492, SMILES+RI)
+- ibio_a_12354757_sm0004.xls (390, SMILES+RI)
+- S6_predict.xlsx (Top100; SMILES + Detection_frequency_records)
+
 Outputs:
 train1492_rdkit_raw.xlsx
 external390_rdkit_raw.xlsx

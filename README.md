@@ -12,10 +12,14 @@ This pipeline is designed to support data-driven environmental prioritization of
 
 
 
+
+
 The pipeline consists of four main steps:
 
 Step A → Step B → Step C → Step D
 Data Build → Model Training → External Validation → Screening
+
+
 
 Step A — RDKit Descriptor Dataset Construction
 
@@ -64,8 +68,12 @@ mobility_occurrence_matrix.xlsx
 quadrant_summary.txt
 
 How to Run ?
+
+
 Step 1: Install dependencies
 pip install numpy pandas scikit-learn tensorflow rdkit joblib
+
+
 Step 2: Run pipeline
 python scripts/A_build_rdkit_datasets_*.py
 python scripts/B_train_ANN_1492_no_leakage.py

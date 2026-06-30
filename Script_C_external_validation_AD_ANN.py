@@ -1,4 +1,4 @@
-# C_external_validation_AD_ANN_1492_to_390.py
+# C_external_validation_AD_ANN.py
 # =============================================================================
 # ANN-only pipeline | Step C
 # External validation + AD:
@@ -17,7 +17,7 @@
 #     - predictions.csv
 #
 # Run:
-#   python scripts/C_external_validation_AD_ANN_1492_to_390.py
+#   python scripts/C_external_validation_AD_ANN.py
 # =============================================================================
 
 import os

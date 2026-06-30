@@ -1,4 +1,4 @@
-# B_train_ANN_1492_no_leakage.py
+# B_train_ANN.py
 # =============================================================================
 # ANN-only pipeline | Step B
 # Train ANN on 1492 dataset ONLY (strict no leakage).
@@ -16,7 +16,7 @@
 #     - ann_model.keras
 #
 # Run:
-#   python scripts/B_train_ANN_1492_no_leakage.py
+#   python scripts/B_train_ANN.py
 # =============================================================================
 
 import os

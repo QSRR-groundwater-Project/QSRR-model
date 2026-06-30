@@ -1,76 +1,167 @@
-# QSRR-Based Groundwater Contaminant Screening Pipeline
-This repository implements a reproducible QSRR (Quantitative Structure–Retention Relationship) pipeline for predicting retention indices (RI) and prioritizing groundwater contaminants.
+QSRR-Based Groundwater Micropollutant Screening Pipeline
+A reproducible Quantitative Structure–Retention Relationship (QSRR) workflow for predicting chromatographic retention indices (RI) and prioritizing groundwater contaminants using mobility, occurrence, and toxicity information.
 
-The workflow integrates:
+This repository accompanies our research on computational screening of groundwater micropollutants and provides datasets, source code, methodologies, and supplementary materials required to reproduce the complete workflow.
 
-SMILES standardization and RDKit descriptor generation
-Artificial Neural Network (ANN) modeling (leakage-free)
-External validation with applicability domain (AD) analysis
-Screening and prioritization using a mobility–occurrence framework
+Repository Structure: 
+QSRR-Based Groundwater Micropollutant Screening model/
+│
+├── Data/
+│   ├── Training dataset (1492 compounds)
+│   ├── Validation dataset (390 compounds)
+│   ├── Screening application dataset (Top100)
+│   └── Raw groundwater micropollutant monitoring dataset
+│
+├── Scripts/
+│   ├── Script_A_build_rdkit_datasets.py
+│   ├── Script_B_train_ANN.py
+│   ├── Script_C_external_validation_AD_ANN.py
+│   └── Script_D_top100_predict_AD_matrix.py
+│
+├── Methodologies/
+│   ├── Dataset details and reference.pdf
+│   └── Methodologies for modeling (code).pdf
+│
+├── Multicriteria risk systems/ (Private)
+│   ├── Risk scoring framework
+│   ├── Mobility–occurrence matrix
+│   ├── Toxicity table
+│   └── Supporting tables
+│
+└── README.md
 
-This pipeline is designed to support data-driven environmental prioritization of micropollutants, particularly in groundwater systems.
+Workflow Overview
+
+The complete pipeline consists of four sequential steps:
+
+Data Preparation
+        │
+        ▼
+Descriptor Generation
+        │
+        ▼
+ANN Model Training
+        │
+        ▼
+External Validation
+        │
+        ▼
+Groundwater Screening
+        │
+        ▼
+Multicriteria Risk Prioritization
 
 
-
-
-
-The pipeline consists of four main steps:
-
-Step A → Step B → Step C → Step D
-Data Build → Model Training → External Validation → Screening
-
+Pipeline Description
 
 
 Step A — RDKit Descriptor Dataset Construction
 
-Script:
-A_build_rdkit_datasets_1492_390_top100_with_smiles_cleanup_KEEPFREQ.py
+Script
+
+Scripts/Script_A_build_rdkit_datasets.py
 
 
-Input: - ibio_a_12354757_sm0003.xls (1492, SMILES+RI)
-- ibio_a_12354757_sm0004.xls (390, SMILES+RI)
-- S6_predict.xlsx (Top100; SMILES + Detection_frequency_records)
-
-Outputs:
-train1492_rdkit_raw.xlsx
-external390_rdkit_raw.xlsx
-top100_rdkit_raw.xlsx
-SMILES cleaning logs
+Input
+Training dataset (1492 compounds)
+Validation dataset (390 compounds)
+Top100 screening dataset
+SMILES structures
+Experimental retention indices (RI)
 
 
-Step B — ANN Model Training (No Leakage)
-
-Script:
-B_train_ANN_1492_no_leakage.py
-
-Outputs:
-ann_model.keras
-preprocess_imputer.pkl
-preprocess_scaler.pkl
-feature_columns.txt
-split_indices.csv
-internal_metrics.txt
+Output
+RDKit descriptor datasets
+Canonicalized SMILES
+Descriptor matrices
+Data cleaning logs
 
 
-Step C — External Validation + Applicability Domain
+Step B — ANN Model Development
 
-Script:
-C_external_validation_AD_ANN_1492_to_390.py
+Script
 
-Outputs:
-metrics.txt
-AD_summary.txt
-predictions.csv
+Scripts/Script_B_train_ANN.py
+Purpose
+
+Develop a leakage-free Artificial Neural Network (ANN) model for RI prediction.
+
+Output
+Trained ANN model
+Feature scaler
+Missing-value imputer
+Selected feature list
+Internal validation metrics
 
 
-Step D — Screening & Prioritization (Top100)
 
-Script:
-D_top100_predict_AD_matrix_ANN_only_FIXED.py
+Step C — External Validation and Applicability Domain Analysis
 
-top100_predictions_with_AD.xlsx
-mobility_occurrence_matrix.xlsx
-quadrant_summary.txt
+Script
+
+Scripts/Script_C_external_validation_AD_ANN.py
+Purpose
+
+Evaluate model performance using an independent external dataset and determine prediction reliability through Applicability Domain (AD) analysis.
+
+Output
+External prediction results
+Performance metrics
+AD summary
+Prediction report
+
+
+
+Step D — Groundwater Screening and Prioritization
+
+Script
+
+Scripts/Script_D_top100_predict_AD_matrix.py
+Purpose
+
+Predict RI values for groundwater contaminants and prioritize compounds using a mobility–occurrence framework combined with toxicity information.
+
+Output
+Predicted retention indices
+Mobility–occurrence matrix
+Risk prioritization tables
+Summary reports
+
+
+
+Data
+
+The Data directory contains:
+
+Training dataset (1492 compounds)
+External validation dataset (390 compounds)
+Top100 groundwater screening dataset
+Raw groundwater monitoring occurrence dataset
+
+
+
+
+Methodologies
+
+The Methodologies directory provides detailed documentation describing
+
+dataset preparation,
+descriptor generation,
+machine learning workflow,
+model development,
+validation procedures.
+
+
+
+
+Multicriteria Risk Systems
+
+This directory contains the supplementary materials supporting the proposed prioritization framework, including
+
+mobility–occurrence matrix,
+toxicity information,
+multicriteria risk scoring framework,
+supplementary tables used in the manuscript.
 
 How to Run ?
 
@@ -80,8 +171,11 @@ pip install numpy pandas scikit-learn tensorflow rdkit joblib
 
 
 Step 2: Run pipeline
-python scripts/A_build_rdkit_datasets_*.py
-python scripts/B_train_ANN_1492_no_leakage.py
-python scripts/C_external_validation_AD_ANN_1492_to_390.py
-python scripts/D_top100_predict_AD_matrix_ANN_only_FIXED.py
+python Scripts/Script_A_build_rdkit_datasets.py
+
+python Scripts/Script_B_train_ANN.py
+
+python Scripts/Script_C_external_validation_AD_ANN.py
+
+python Scripts/Script_D_top100_predict_AD_matrix.py
 

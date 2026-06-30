@@ -28,7 +28,7 @@ Script_D_top100_predict_AD_matrix.py.
  Dataset details and reference.pdf; 
  Methodologies for modeling (code).pdf. 
  
- Multicriteria risk systems
+ Multicriteria risk systems (This section is part of the ACS ES&T water manuscript). 
  
  Risk scoring framework;
  Mobility–occurrence matrix;
@@ -167,6 +167,9 @@ validation procedures.
 
 
 Multicriteria Risk Systems
+
+(This section is part of the ACS ES&T water manuscript. 
+Table S1,S2 and S3)
 
 This directory contains the supplementary materials supporting the proposed prioritization framework, including
 

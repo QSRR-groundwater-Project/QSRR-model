@@ -34,26 +34,28 @@ Script_D_top100_predict_AD_matrix.py.
 
 
 
+
+
 Workflow Overview
 
 The complete pipeline consists of four sequential steps:
 
-Data Preparation
+Data Preparation;
         │
       
-Descriptor Generation
+Descriptor Generation;
         │
     
-ANN Model Training
+ANN Model Training;
         │
      
-External Validation
+External Validation; 
         │
   
-Groundwater Screening
+Groundwater Screening; 
         │
 
-Multicriteria Risk Prioritization
+Multicriteria Risk Prioritization. 
 
 
 

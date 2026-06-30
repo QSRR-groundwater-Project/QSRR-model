@@ -6,23 +6,23 @@ This repository accompanies our research on computational screening of groundwat
 Repository Structure: 
 QSRR-model
 
- Data/
+ Data
 Training dataset (1492 compounds)
 Validation dataset (390 compounds)
 Screening application dataset (Top100)
 Raw groundwater micropollutant monitoring dataset
 
-Scripts/
+Scripts
 Script_A_build_rdkit_datasets.py
 Script_B_train_ANN.py
 Script_C_external_validation_AD_ANN.py
 Script_D_top100_predict_AD_matrix.py
 
- Methodologies/
+ Methodologies
  Dataset details and reference.pdf
  Methodologies for modeling (code).pdf
  
- Multicriteria risk systems/
+ Multicriteria risk systems
  Risk scoring framework
  Mobility–occurrence matrix
  Toxicity table

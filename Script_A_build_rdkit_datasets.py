@@ -22,7 +22,7 @@
 #     - top100_rdkit_raw.xlsx   ✅ includes Detection_frequency_records + meta cols
 #
 # Run:
-#   python scripts/A_build_rdkit_datasets_1492_390_top100_with_smiles_cleanup_KEEPFREQ.py
+#   python scripts/A_build_rdkit_datasets.py
 # =============================================================================
 
 import os

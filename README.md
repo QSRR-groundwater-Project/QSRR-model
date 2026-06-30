@@ -4,31 +4,8 @@ A reproducible Quantitative Structure–Retention Relationship (QSRR) workflow f
 This repository accompanies our research on computational screening of groundwater micropollutants and provides datasets, source code, methodologies, and supplementary materials required to reproduce the complete workflow.
 
 Repository Structure: 
-QSRR-Based Groundwater Micropollutant Screening model/
-│
-├── Data/
-│   ├── Training dataset (1492 compounds)
-│   ├── Validation dataset (390 compounds)
-│   ├── Screening application dataset (Top100)
-│   └── Raw groundwater micropollutant monitoring dataset
-│
-├── Scripts/
-│   ├── Script_A_build_rdkit_datasets.py
-│   ├── Script_B_train_ANN.py
-│   ├── Script_C_external_validation_AD_ANN.py
-│   └── Script_D_top100_predict_AD_matrix.py
-│
-├── Methodologies/
-│   ├── Dataset details and reference.pdf
-│   └── Methodologies for modeling (code).pdf
-│
-├── Multicriteria risk systems/ (Private)
-│   ├── Risk scoring framework
-│   ├── Mobility–occurrence matrix
-│   ├── Toxicity table
-│   └── Supporting tables
-│
-└── README.md
+![Uploading Screen Shot 2026-06-30 at 4.23.54 PM.png…]()
+
 
 Workflow Overview
 

@@ -1,10 +1,10 @@
-# D_top100_predict_AD_matrix_ANN_only_FIXED.py
+# D_top100_predict_AD_matrix.py
 # =============================================================================
 # FIXED version of Step D (ANN-only)
 # - Fixes numpy string concatenation bug when building "Quadrant" column
 #
 # Run:
-#   python scripts/D_top100_predict_AD_matrix_ANN_only_FIXED.py
+#   python scripts/D_top100_predict_AD_matrix.py
 # =============================================================================
 
 import os

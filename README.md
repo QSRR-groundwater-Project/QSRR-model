@@ -7,26 +7,26 @@ Repository Structure:
 QSRR-model
 
  Data
-Training dataset (1492 compounds)
-Validation dataset (390 compounds)
-Screening application dataset (Top100)
-Raw groundwater micropollutant monitoring dataset
+Training dataset (1492 compounds);
+Validation dataset (390 compounds);
+Screening application dataset (Top100); 
+Raw groundwater micropollutant monitoring dataset. 
 
 Scripts
-Script_A_build_rdkit_datasets.py
-Script_B_train_ANN.py
-Script_C_external_validation_AD_ANN.py
-Script_D_top100_predict_AD_matrix.py
+Script_A_build_rdkit_datasets.py;
+Script_B_train_ANN.py;
+Script_C_external_validation_AD_ANN.py;
+Script_D_top100_predict_AD_matrix.py. 
 
  Methodologies
- Dataset details and reference.pdf
- Methodologies for modeling (code).pdf
+ Dataset details and reference.pdf; 
+ Methodologies for modeling (code).pdf. 
  
  Multicriteria risk systems
- Risk scoring framework
- Mobility–occurrence matrix
- Toxicity table
-  Supporting tables
+ Risk scoring framework;
+ Mobility–occurrence matrix;
+ Toxicity table;
+  Supporting tables.
 
 
 

@@ -1,4 +1,7 @@
 QSRR-Based Groundwater Micropollutant Screening Pipeline
+
+
+
 A reproducible Quantitative Structure–Retention Relationship (QSRR) workflow for predicting chromatographic retention indices (RI) and prioritizing groundwater contaminants using mobility, occurrence, and toxicity information.
 
 This repository accompanies our research on computational screening of groundwater micropollutants and provides datasets, source code, methodologies, and supplementary materials required to reproduce the complete workflow.

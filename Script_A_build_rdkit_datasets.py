@@ -1,4 +1,4 @@
-# A_build_rdkit_datasets_1492_390_top100_with_smiles_cleanup_KEEPFREQ.py
+# A_build_rdkit_datasets.py
 # =============================================================================
 # FIXED Step A (ANN-only pipeline):
 # Build consistent RDKit descriptor datasets with SMILES cleanup/canonicalization.

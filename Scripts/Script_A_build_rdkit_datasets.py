@@ -13,7 +13,7 @@
 # INPUT (place inside ./data/):
 #   - ibio_a_12354757_sm0003.xls   (1492, SMILES+RI)
 #   - ibio_a_12354757_sm0004.xls   (390, SMILES+RI)
-#   - S6_predict.xlsx              (Top100; SMILES + Detection_frequency_records)
+#   - S6_predict.xlsx              (Top100; SMILES + Detection_frequency_records). This dataset comes from NORMAN EMPODAT
 #
 # OUTPUT:
 #   ./outputs_A_rdkit_build/

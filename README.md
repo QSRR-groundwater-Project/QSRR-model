@@ -1,6 +1,6 @@
 QSRR-Based Groundwater Micropollutant Screening Pipeline
 
-
+Our PhD project : Computational Models for Predicting Micropollutant Transfer and Ecotoxicological Risk in Water
 
 A reproducible Quantitative Structure–Retention Relationship (QSRR) workflow for predicting chromatographic retention indices (RI) and prioritizing groundwater contaminants using mobility, occurrence, and toxicity information.
 

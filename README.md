@@ -198,7 +198,9 @@ Step 2: Run pipeline
 
 python Scripts/Script_A_build_rdkit_datasets.py
 
-python Scripts/Script_B_train_ANN.py (calibration)
+python Scripts/Script_B_train_ANN.py
+
+python Scripts/Script_Calibration.py
 
 python Scripts/Script_C_external_validation_AD_ANN.py
 

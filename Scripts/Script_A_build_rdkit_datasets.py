@@ -3,7 +3,7 @@
 # FIXED Step A (ANN-only pipeline):
 # Build consistent RDKit descriptor datasets with SMILES cleanup/canonicalization.
 #
-# ✅ NEW: keep Top100 metadata columns such as:
+# keep Top100 metadata columns such as:
 #    - Detection_frequency_records
 #    - Rank
 #    - Individual compound

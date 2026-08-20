@@ -1,4 +1,4 @@
-C_external_validation_AD_ANN.py
+# C_external_validation_AD_ANN.py
 # =============================================================================
 # ANN-only pipeline | Step C
 # External validation + AD:

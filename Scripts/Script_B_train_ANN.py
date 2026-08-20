@@ -1,6 +1,6 @@
 # B_train_ANN.py
 =============================================================================
-# Best-performing ANN training script
+# ANN training script
 # - Dropout: 0.4, 0.3, 0.2
 # - Early stopping patience: 50
 # - No feature selection (keeping all RDKit descriptors)

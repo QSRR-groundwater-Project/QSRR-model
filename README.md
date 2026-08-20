@@ -20,6 +20,7 @@ Scripts
 
 Script_A_build_rdkit_datasets.py;
 Script_B_train_ANN.py;
+Script_Calibration.py
 Script_C_external_validation_AD_ANN.py;
 Script_D_top100_predict_AD_matrix.py. 
 
@@ -51,7 +52,8 @@ Descriptor Generation;
     
 ANN Model Training;
         │
-     
+ANN Model Calibration;
+       │
 External Validation; 
         │
   
@@ -105,6 +107,10 @@ Missing-value imputer
 Selected feature list
 Internal validation metrics
 
+
+The calibration workflow is:
+
+ANN training → save ANN → calibration code loads ANN → generate predictions → fit calibration using validation set → apply calibration to test set.
 
 
 Step C — External Validation and Applicability Domain Analysis

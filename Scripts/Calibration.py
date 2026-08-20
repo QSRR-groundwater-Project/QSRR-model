@@ -2,15 +2,13 @@
 # ============================================================
 # Calibration curve (reliability diagram) and Brier Skill Score
 # It tests:
-
-Linear calibration
-Isotonic calibration
-Binning with 5, 7, 10, 15, 20 bins
-5-fold CV on the validation set
-selection of the best calibrator
-an ensemble of calibrators weighted by inverse CV RMSE
-
-The selection is performed using the validation predictions, and then the selected calibrator is fitted on the full validation set.
+# Linear calibration
+# Isotonic calibration
+# Binning with 5, 7, 10, 15, 20 bins
+# 5-fold CV on the validation set
+# selection of the best calibrator
+# an ensemble of calibrators weighted by inverse CV RMSE
+# The selection is performed using the validation predictions, and then the selected calibrator is fitted on the full validation set.
 # ============================================================
 
 import numpy as np

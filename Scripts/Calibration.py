@@ -1,7 +1,6 @@
 # Calibration.py
 # ============================================================
-# Improved version: Spline ext parameter fixed + jitter for ties
-# Added: calibration curve (reliability diagram) and Brier Skill Score
+# Calibration curve (reliability diagram) and Brier Skill Score
 # ============================================================
 
 import numpy as np

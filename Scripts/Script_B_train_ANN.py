@@ -1,22 +1,9 @@
 # B_train_ANN.py
-# =============================================================================
-# ANN-only pipeline | Step B
-# Train ANN on 1492 dataset ONLY (strict no leakage).
-#
-# INPUT:
-#   outputs_A_rdkit_build/train1492_rdkit_raw.xlsx
-#
-# OUTPUT:
-#   outputs_B_ANN_1492/
-#     - preprocess_imputer.pkl
-#     - preprocess_scaler.pkl
-#     - feature_columns.txt
-#     - split_indices.csv
-#     - internal_metrics.txt
-#     - ann_model.keras
-#
-# Run:
-#   python scripts/B_train_ANN.py
+=============================================================================
+# Best-performing ANN training script
+# - Dropout: 0.4, 0.3, 0.2
+# - Early stopping patience: 50
+# - No feature selection (keeping all RDKit descriptors)
 # =============================================================================
 
 import os
@@ -32,25 +19,34 @@ from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 import tensorflow as tf
 from tensorflow.keras import layers, callbacks, models
 
+# =============================================================================
+# Hyperparameters (optimised)
+# =============================================================================
 RANDOM_STATE = 42
 TEST_SIZE = 0.20
 VAL_SIZE = 0.15
 
 ANN_EPOCHS = 3000
 ANN_BATCH = 32
-ANN_PATIENCE = 150
+ANN_PATIENCE = 50          # reduced from 150 to avoid overfitting
 ANN_LR = 3e-4
 
+# =============================================================================
+# Paths
+# =============================================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PIPE_DIR = os.path.dirname(BASE_DIR)
+PIPE_DIR = BASE_DIR
 
 DATA_PATH = os.path.join(PIPE_DIR, "outputs_A_rdkit_build", "train1492_rdkit_raw.xlsx")
-OUT_DIR = os.path.join(PIPE_DIR, "outputs_B_ANN_1492")
+OUT_DIR = os.path.join(PIPE_DIR, "outputs_B_ANN_best")   # separate folder to keep track
 os.makedirs(OUT_DIR, exist_ok=True)
 
 np.random.seed(RANDOM_STATE)
 tf.random.set_seed(RANDOM_STATE)
 
+# =============================================================================
+# Load data
+# =============================================================================
 df = pd.read_excel(DATA_PATH)
 assert "target" in df.columns
 
@@ -62,6 +58,9 @@ X = df[feature_cols].apply(pd.to_numeric, errors="coerce").values
 y = df["target"].astype(float).values
 X = np.where(np.isfinite(X), X, np.nan)
 
+# =============================================================================
+# Train/val/test split
+# =============================================================================
 idx_all = np.arange(len(df))
 idx_trainval, idx_test = train_test_split(idx_all, test_size=TEST_SIZE, random_state=RANDOM_STATE)
 idx_train, idx_val = train_test_split(idx_trainval, test_size=VAL_SIZE, random_state=RANDOM_STATE)
@@ -78,6 +77,9 @@ X_train_raw, y_train = X[idx_train], y[idx_train]
 X_val_raw, y_val = X[idx_val], y[idx_val]
 X_test_raw, y_test = X[idx_test], y[idx_test]
 
+# =============================================================================
+# Preprocessing (imputation + scaling)
+# =============================================================================
 imputer = SimpleImputer(strategy="median")
 X_train_imp = imputer.fit_transform(X_train_raw)
 X_val_imp = imputer.transform(X_val_raw)
@@ -91,23 +93,29 @@ X_test = scaler.transform(X_test_imp)
 joblib.dump(imputer, os.path.join(OUT_DIR, "preprocess_imputer.pkl"))
 joblib.dump(scaler, os.path.join(OUT_DIR, "preprocess_scaler.pkl"))
 
+# =============================================================================
+# Metrics helper
+# =============================================================================
 def metrics(y_true, y_pred):
     r2 = r2_score(y_true, y_pred)
     rmse = np.sqrt(mean_squared_error(y_true, y_pred))
     mae = mean_absolute_error(y_true, y_pred)
     return r2, rmse, mae
 
+# =============================================================================
+# Build ANN with higher dropout rates (best configuration)
+# =============================================================================
 def build_ann(d):
     m = models.Sequential([
         layers.Input(shape=(d,)),
         layers.Dense(256, activation="relu"),
         layers.BatchNormalization(),
-        layers.Dropout(0.25),
+        layers.Dropout(0.4),          # increased from 0.25
         layers.Dense(128, activation="relu"),
         layers.BatchNormalization(),
-        layers.Dropout(0.20),
+        layers.Dropout(0.3),          # increased from 0.20
         layers.Dense(64, activation="relu"),
-        layers.Dropout(0.10),
+        layers.Dropout(0.2),          # increased from 0.10
         layers.Dense(1)
     ])
     m.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=ANN_LR), loss="mse")
@@ -115,11 +123,17 @@ def build_ann(d):
 
 ann = build_ann(X_train.shape[1])
 
+# =============================================================================
+# Callbacks (earlier stopping)
+# =============================================================================
 cb = [
     callbacks.EarlyStopping(monitor="val_loss", patience=ANN_PATIENCE, restore_best_weights=True),
     callbacks.ReduceLROnPlateau(monitor="val_loss", factor=0.5, patience=50, min_lr=1e-6, verbose=0)
 ]
 
+# =============================================================================
+# Train (verbose=0 to keep output clean; change to 1 if you want progress)
+# =============================================================================
 ann.fit(
     X_train, y_train,
     validation_data=(X_val, y_val),
@@ -131,11 +145,14 @@ ann.fit(
 
 ann.save(os.path.join(OUT_DIR, "ann_model.keras"))
 
+# =============================================================================
+# Evaluate on test set
+# =============================================================================
 pred_test = ann.predict(X_test, verbose=0).reshape(-1)
 r2, rmse, mae = metrics(y_test, pred_test)
 
 lines = []
-lines.append("===== Internal Hold-out Test (1492 split; ANN only; no leakage) =====")
+lines.append("===== Internal Hold-out Test (Best ANN config) =====")
 lines.append(f"n_total={len(df)} | train={len(idx_train)} | val={len(idx_val)} | test={len(idx_test)}")
 lines.append(f"[ANN] R2={r2:.4f} | RMSE={rmse:.2f} | MAE={mae:.2f}")
 txt = "\n".join(lines) + "\n"
@@ -144,4 +161,4 @@ print("\n" + txt)
 with open(os.path.join(OUT_DIR, "internal_metrics.txt"), "w", encoding="utf-8") as f:
     f.write(txt)
 
-print("✅ Step B DONE. Outputs in:", OUT_DIR)
+print("✅ Best ANN training complete. Outputs in:", OUT_DIR)

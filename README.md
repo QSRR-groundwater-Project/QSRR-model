@@ -20,7 +20,7 @@ Scripts
 
 Script_A_build_rdkit_datasets.py;
 Script_B_train_ANN.py;
-Script_Calibration.py
+Script_Calibration.py;
 Script_C_external_validation_AD_ANN.py;
 Script_D_top100_predict_AD_matrix.py. 
 

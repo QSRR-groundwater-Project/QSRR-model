@@ -1,6 +1,8 @@
 # B_train_ANN.py
 =============================================================================
-# ANN training script
+# ANN script
+# - Test_size: 0.20
+# - Val_size: 0.15
 # - Dropout: 0.4, 0.3, 0.2
 # - Early stopping patience: 50
 # - No feature selection (keeping all RDKit descriptors)

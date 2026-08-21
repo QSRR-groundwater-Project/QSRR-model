@@ -6,6 +6,10 @@ A reproducible Quantitative Structure–Retention Relationship (QSRR) workflow f
 
 This repository accompanies our research on computational screening of groundwater micropollutants and provides datasets, source code, methodologies, and supplementary materials required to reproduce the complete workflow.
 
+
+
+
+
 Repository Structure: 
 QSRR-model
 
@@ -40,27 +44,6 @@ Script_D_top100_predict_AD_matrix.py.
 
 
 
-Workflow Overview
-
-The complete pipeline consists of four sequential steps:
-
-Data Preparation;
-        │
-      
-Descriptor Generation;
-        │
-    
-ANN Model Training;
-        │
-ANN Model Calibration;
-       │
-External Validation; 
-        │
-  
-Groundwater Screening; 
-        │
-
-Multicriteria Risk Prioritization. 
 
 
 

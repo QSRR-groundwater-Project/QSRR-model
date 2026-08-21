@@ -1,4 +1,4 @@
-# B_train_MLR_1492_no_leakage.py
+# train_MLR.py
 import os
 import numpy as np
 import pandas as pd

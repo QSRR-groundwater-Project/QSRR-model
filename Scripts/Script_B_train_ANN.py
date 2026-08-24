@@ -112,12 +112,12 @@ def build_ann(d):
         layers.Input(shape=(d,)),
         layers.Dense(256, activation="relu"),
         layers.BatchNormalization(),
-        layers.Dropout(0.4),          # increased from 0.25
+        layers.Dropout(0.4),        
         layers.Dense(128, activation="relu"),
         layers.BatchNormalization(),
-        layers.Dropout(0.3),          # increased from 0.20
+        layers.Dropout(0.3),         
         layers.Dense(64, activation="relu"),
-        layers.Dropout(0.2),          # increased from 0.10
+        layers.Dropout(0.2),          
         layers.Dense(1)
     ])
     m.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=ANN_LR), loss="mse")

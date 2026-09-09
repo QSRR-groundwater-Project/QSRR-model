@@ -21,11 +21,9 @@ Screening application dataset (Top100);
 Raw groundwater micropollutant monitoring dataset. 
 
 Data reference : 
-Training dataset (1492 compounds) + Validation dataset (390 compounds) : Hall, L.M., et al., Optimizing artificial neural network models for metabolomics and systems biology: an example using HPLC retention index data. Bioanalysis, 2015. 7(8): p. 939-955.<img width="468" height="74" alt="image" src="https://github.com/user-attachments/assets/e5f559d1-2789-48f9-8db1-f383ce41f2dd" />
+Training dataset (1492 compounds) + Validation dataset (390 compounds) : Hall, L.M., et al., Optimizing artificial neural network models for metabolomics and systems biology: an example using HPLC retention index data. Bioanalysis, 2015. 7(8): p. 939-955.
 
-Screening application dataset (Top100) : System, N.D.; Available from: https://www.norman-network.com/nds/empodat/.<img width="468" height="45" alt="image" src="https://github.com/user-attachments/assets/88dff885-fab7-4422-88c6-bdd9b62254f5" />
-
-
+Screening application dataset (Top100) : System, N.D.; Available from: https://www.norman-network.com/nds/empodat/.
 
 
 

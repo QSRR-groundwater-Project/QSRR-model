@@ -1,5 +1,6 @@
 # Calibration.py
 # ============================================================
+# I would share some informations 
 # Calibration curve (reliability diagram) and Brier Skill Score
 # It tests:
 # Linear calibration

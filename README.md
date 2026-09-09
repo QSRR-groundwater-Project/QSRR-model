@@ -22,7 +22,7 @@ Raw groundwater micropollutant monitoring dataset.
 
 Data reference : 
 
-Training dataset (1492 compounds) + Validation dataset (390 compounds) : Hall, L.M., et al., Optimizing artificial neural network models for metabolomics and systems biology: an example using HPLC retention index data. Bioanalysis, 2015. 7(8): p. 939-955. https://www.tandfonline.com/doi/full/10.4155/bio.15.1 <img width="468" height="31" alt="image" src="https://github.com/user-attachments/assets/d8a62714-91d8-4496-a2eb-534c7d5e52f6" />
+Training dataset (1492 compounds) + Validation dataset (390 compounds) : Hall, L.M., et al., Optimizing artificial neural network models for metabolomics and systems biology: an example using HPLC retention index data. Bioanalysis, 2015. 7(8): p. 939-955. https://www.tandfonline.com/doi/full/10.4155/bio.15.1  src="https://github.com/user-attachments/assets/d8a62714-91d8-4496-a2eb-534c7d5e52f6" />
 
 
 Screening application dataset (Top100) : System, N.D.; Available from: https://www.norman-network.com/nds/empodat/.
@@ -166,9 +166,6 @@ validation procedures.
 
 
 Multicriteria Risk Systems
-
-(This section is part of the ACS ES&T water manuscript. 
-Table S1,S2 and S3)
 
 This directory contains the supplementary materials supporting the proposed prioritization framework, including
 

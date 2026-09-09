@@ -28,6 +28,10 @@ Training dataset (1492 compounds) + Validation dataset (390 compounds) : Hall, L
 Screening application dataset (Top100) : System, N.D.; Available from: https://www.norman-network.com/nds/empodat/.
 
 
+Toxicity : Olker, J. H., Elonen, C. M., Pilli, A., Anderson, A., Kinziger, B., Erickson, S., Skopinski, M., Pomplun, A., LaLone, C. A., Russom, C. L., & Hoff, D. (2022). The ECOTOXicology Knowledgebase: A Curated Database of Ecologically Relevant Toxicity Tests to Support Environmental Research and Risk Assessment. Environmental Toxicology and Chemistry, 41(6):1520-1539. https://doi.org/10.1002/etc.5324<img width="468" height="134" alt="image" src="https://github.com/user-attachments/assets/42411e19-eb3a-448b-b09b-6a6b94b0b8a7" />
+
+
+
 
 
 Scripts

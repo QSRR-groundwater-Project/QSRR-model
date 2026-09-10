@@ -209,3 +209,4 @@ python Scripts/Script_C_external_validation_AD_ANN.py
 
 python Scripts/Script_D_top100_predict_AD_matrix.py
 
+python Multicriteria_risk_scoring/Multicriteria_risk_scoring.py

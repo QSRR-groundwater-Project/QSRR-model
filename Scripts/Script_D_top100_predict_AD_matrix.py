@@ -5,6 +5,7 @@
 #
 # Run:
 #   python scripts/D_top100_predict_AD_matrix_ANN_only_FIXED.py
+# Here, This Scripts provides the code for figures such as the Priority Score Correlation Heat Map 
 # =============================================================================
 
 import os

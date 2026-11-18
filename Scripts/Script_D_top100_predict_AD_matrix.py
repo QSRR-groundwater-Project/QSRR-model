@@ -1,12 +1,3 @@
-# Script_D_top100_predict_AD_matrix.py
-=============================================================================
-# FIXED version of Step D (ANN-only)
-# - Fixes numpy string concatenation bug when building "Quadrant" column
-#
-# Run:
-#   python scripts/D_top100_predict_AD_matrix_ANN_only_FIXED.py
-# Here, This Scripts provides the code for figures such as the Priority Score Correlation Heat Map 
-# =============================================================================
 
 import os
 import numpy as np

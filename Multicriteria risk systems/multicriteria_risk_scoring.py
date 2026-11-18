@@ -1,4 +1,4 @@
-# Here, default weighting schema was set : M 0.4, O 0.3 and T 0.3
+
 import numpy as np
 import pandas as pd
 

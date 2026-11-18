@@ -1,29 +1,3 @@
-# A_build_rdkit_datasets.py
-# =============================================================================
-# FIXED Step A (ANN-only pipeline):
-# Build consistent RDKit descriptor datasets with SMILES cleanup/canonicalization.
-#
-# keep Top100 metadata columns such as:
-#    - Detection_frequency_records
-#    - Rank
-#    - Individual compound
-#    - StdInChIKey
-#    - CAS No.
-#
-# INPUT (place inside ./data/):
-#   - ibio_a_12354757_sm0003.xls   (1492, SMILES+RI)
-#   - ibio_a_12354757_sm0004.xls   (390, SMILES+RI)
-#   - S6_predict.xlsx              (Top100; SMILES + Detection_frequency_records). This dataset comes from NORMAN EMPODAT
-#
-# OUTPUT:
-#   ./outputs_A_rdkit_build/
-#     - train1492_rdkit_raw.xlsx
-#     - external390_rdkit_raw.xlsx
-#     - top100_rdkit_raw.xlsx   ✅ includes Detection_frequency_records + meta cols
-#
-# Run:
-#   python scripts/A_build_rdkit_datasets.py
-# =============================================================================
 
 import os
 import re

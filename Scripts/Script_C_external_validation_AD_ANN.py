@@ -1,24 +1,3 @@
-# C_external_validation_AD_ANN.py
-# =============================================================================
-# ANN-only pipeline | Step C
-# External validation + AD:
-#   Train space: 1492
-#   External set: 390
-#
-# INPUT:
-#   outputs_A_rdkit_build/train1492_rdkit_raw.xlsx
-#   outputs_A_rdkit_build/external390_rdkit_raw.xlsx
-#   outputs_B_ANN_1492/ (preprocessor + ANN model)
-#
-# OUTPUT:
-#   outputs_C_external390_eval_ANN/
-#     - metrics.txt
-#     - AD_summary.txt
-#     - predictions.csv
-#
-# Run:
-#   python scripts/C_external_validation_AD_ANN_1492_to_390.py
-# =============================================================================
 
 import os
 import numpy as np
